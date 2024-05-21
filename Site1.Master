@@ -1,0 +1,105 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="myproject.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+        <style type="text/css">
+     .ALL
+     {
+         background-color:#FFFBFA;
+         border-radius: 0% 50% 50%  0%/ 0% 50% 50%  0%;
+         position:relative;
+         bottom:20px;
+         text-align:left;
+         color:black;
+         float:left;
+     }
+            .auto-style2 {
+                width: 1100px;
+            }
+            .auto-style3 {
+                height: 100px;
+                width: 138px;
+            }
+            
+ </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+             <table style="margin: 0 auto; background-color:#FFFBFA; " class="auto-style2">
+    <%-- HEADER --%>
+    <tr style="width:1100px; height:50px; background-color:#FFFBFA;">
+        <td style="text-align:left;" class="auto-style3">
+            <asp:Image ID="Image1" runat="server"  Height="107px" ImageUrl="~/images/logo.jpg" Width="130px"/>
+            <asp:ImageButton style="text-align:left;" ID="ImageButton1" Height="38px" Width="41px" runat="server" PostBackUrl="" ImageUrl="~/images/instegram.jpg" />
+            <asp:ImageButton style="text-align:left;" ID="ImageButton2" Height="37px" Width="46px" runat="server" PostBackUrl="" ImageUrl="~/images/facebook.jpg"/>
+            <asp:ImageButton style="text-align:left;" ID="ImageButton3" Height="37px" Width="47px" runat="server" PostBackUrl="" ImageUrl="~/images/tiktok.jpg"/>
+        </td>
+         <td style=" width:740px" align="center">
+                <asp:Label ID="Label1" runat="server" Text="Wine Shopping Center" 
+                    Font-Bold="True" Font-Names="Rockwell" 
+                    ForeColor="#000000" Font-Size="35px"></asp:Label>
+                    <br /><b style="font-style:oblique"> For Those Who are Addicted to Wine</b>
+                    </td>
+        <td style="width:100px; text-align:right;">
+            <asp:ImageButton style="text-align:right;" ID="ImageButton4" Height="50px" Width="50px" runat="server" ImageUrl="~/images/shopingcart.jpg" CausesValidation="false" OnClick="ImageButton4_Click"/>
+            <asp:Label style="text-align:end;" ID="Label2" runat="server" Text="Label"></asp:Label>
+        </td>
+    </tr>
+    <%-- NAVIGATION --%>
+    <tr style="width:3100px; height: 40px; background-color:#dad5c9; ">
+        <td colspan="3" style="text-align:center; align-content:center; ">
+            <asp:Menu ID="Menu2" runat="server" Orientation="Horizontal" StaticSubMenuIndent="19px">
+                <Items>
+                    <asp:MenuItem Text="Home" Value="Home" ></asp:MenuItem>
+                    <asp:MenuItem Text="All Products" Value="All Products" NavigateUrl="~/Catalog.aspx" ></asp:MenuItem>
+                    <asp:MenuItem Text ="Registration" Value="Registration" NavigateUrl="~/Register.aspx" ></asp:MenuItem>
+                    <asp:MenuItem Text="User Login" Value="User Login" NavigateUrl="~/Login.aspx" ></asp:MenuItem>
+                    <asp:MenuItem Text="About Us" Value="About Us" ></asp:MenuItem>
+                    <asp:MenuItem Text="Contect Us" Value="Contect Us" ></asp:MenuItem>
+                </Items>
+                <StaticHoverStyle BackColor="White" Height="40px" />
+                <StaticMenuItemStyle Font-Size="Large" ForeColor="Black" HorizontalPadding="50px" />
+                <StaticSelectedStyle BackColor="Black" ForeColor="White" Height="40px" />
+            </asp:Menu>
+        </td>
+        </tr>
+    </tr>
+    <%-- TIMER --%>
+    <tr style="width: 3100px;height:500px">
+         <td colspan="3">
+             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                 <ContentTemplate>
+                      <asp:Timer ID="Timer1" runat="server" Interval="2000" OnTick="Timer1_Tick"></asp:Timer>
+                     <asp:Image ID="Image2" runat="server" BackColor="#FFFBFA" BorderStyle="None" Height="500px" Width="1140px" ImageAlign="Middle" />
+                 </ContentTemplate>
+           </asp:UpdatePanel>
+         </td>
+    </tr>
+    <%-- USERS CONTENT --%>
+    <tr>
+        <td colspan="3">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
+            <ContectTemplete>
+        </td>
+    </tr>
+
+    <%-- FOOTER --%>
+    <tr style="width:3100px; height:30px; background-color:lightslategrey; text-align:center; color:white;">
+        <td colspan="3">
+            &copy; VinoShop | all rights reserved. 2024
+        </td>
+    </tr>
+</table>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
